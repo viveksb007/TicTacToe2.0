@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#272729"
+    android:orientation="vertical" android:gravity="center"
+    android:id="@+id/mylayout">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Game"
+        android:id="@+id/button"
+        android:background="@drawable/button"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:textSize="20dp"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="7"
+        android:shadowRadius="10"
+
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:id="@+id/button2"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:textSize="20dp"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="7"
+        android:shadowRadius="10"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exit"
+        android:id="@+id/button3"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:textSize="20dp"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="7"
+        android:shadowRadius="10"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play with friends?"
+        android:id="@+id/play_with_frnd"
+        android:layout_gravity="center_horizontal"
+        android:textSize="15dp"
+        android:textColor="#52C6FF"
+        android:shadowColor="#A9A9A9"
+        android:shadowDy="7"
+        android:shadowRadius="10"
+        />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:paddingTop="5dp"
+        >
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fb"
+            android:background="@drawable/fb"
+            android:padding="10dp"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tw"
+            android:background="@drawable/tw"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/g"
+            android:padding="10dp"
+            android:background="@drawable/g"
+            />
+    </LinearLayout>
+</LinearLayout>

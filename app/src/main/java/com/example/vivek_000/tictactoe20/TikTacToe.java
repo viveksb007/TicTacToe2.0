@@ -9,6 +9,9 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.view.MotionEvent;
@@ -25,6 +28,8 @@ import java.util.List;
  * Created by vivek_000 on 7/3/2015.
  */
 public class TikTacToe extends Activity implements View.OnTouchListener {
+
+    MediaPlayer start_tune;
     Paint paint, ColorForWin,textPaint;
     int[] canDraw = new int[9];
     String WhoWon = null;
@@ -35,7 +40,8 @@ public class TikTacToe extends Activity implements View.OnTouchListener {
     float widthfactor, heightfactor, basefactor, crossfactor;
     boolean circleorcross = true, gameOver = false, PAClicked = false, ExitClicked = false, noOneWin = false;
     List<Point> circlePoints, circleWinPoints, crossWinPoints, crossPoints;
-
+    SoundPool sp;
+    int tick=0;
     class Base extends View {
 
         public Base(Context context) {
@@ -113,6 +119,7 @@ public class TikTacToe extends Activity implements View.OnTouchListener {
                 canvas.drawBitmap(ExitGame, new Rect(0, 0, ExitGame.getWidth(), ExitGame.getHeight()), ex, null);
 
             }
+
             if(PAClicked){
                /*
                 Intent intent=getIntent();
@@ -135,6 +142,13 @@ public class TikTacToe extends Activity implements View.OnTouchListener {
     float x, y;
     PowerManager.WakeLock wakeLock;
 
+    public void play()
+    {
+        if(tick!=0)
+        sp.play(tick,1,1,0,0,1);
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         ///////// Wake Lock   ////////////
@@ -144,6 +158,12 @@ public class TikTacToe extends Activity implements View.OnTouchListener {
         wakeLock.acquire();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        sp = new SoundPool(1, AudioManager.STREAM_MUSIC,0);
+        tick = sp.load(this,R.raw.tick,0);
+        start_tune = MediaPlayer.create(TikTacToe.this, R.raw.ac);
+
+
         base = new Base(this);
         setContentView(base);
         base.setOnTouchListener(this);
@@ -301,6 +321,24 @@ public class TikTacToe extends Activity implements View.OnTouchListener {
                 c++;
         }
         if((c==9)&&(WhoWon==null)){gameOver=true; noOneWin=true;}
+
+        if(gameOver)
+        {
+            if(!start_tune.isPlaying())
+            start_tune.start();
+        }
+        else
+        {
+            if(start_tune.isPlaying())
+              start_tune.release();
+        }
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        start_tune.release();
     }
 
     @Override
@@ -309,6 +347,7 @@ public class TikTacToe extends Activity implements View.OnTouchListener {
         y = event.getY();
         if(event.getAction()==MotionEvent.ACTION_UP) {
             if(!gameOver) {
+                play();
                 if ((x > 0) && (x < widthfactor)) {
                     if ((y > basefactor) && (y < basefactor + widthfactor)) {
                         x = widthfactor / 2;

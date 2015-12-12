@@ -45,6 +45,16 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".settings"
+            android:label="TikTacToe"
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <action android:name="com.example.vivek_000.tictactoe20.SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

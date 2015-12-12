@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="#272729"
+    android:weightSum="2"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:id="@+id/tv_settings"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#52C6FF"
+        android:textSize="40dp"
+        android:paddingTop="10dp"
+        />
+
+   <LinearLayout
+       android:layout_width="fill_parent"
+       android:layout_height="fill_parent"
+       android:orientation="vertical"
+       android:layout_weight="1"
+       android:gravity="center"
+       >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sound"
+        android:textColor="#52C6FF"
+        android:textSize="30dp"
+        android:id="@+id/tv_sound"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="10dp"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sound_group"
+        >
+       <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="On"
+        android:id="@+id/rb_on"
+        android:layout_gravity="center_horizontal"
+        android:checked="true"
+        />
+
+       <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Off"
+        android:id="@+id/rb_off"
+        android:layout_gravity="center_horizontal" />
+    </RadioGroup>
+   </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:orientation="vertical"
+
+      android:layout_weight="1">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Difficulty Level"
+        android:id="@+id/tv_level"
+        android:textColor="#52C6FF"
+        android:textSize="30dp"
+        android:layout_gravity="center_horizontal" />
+<RadioGroup
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/level_group"
+    >
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Easy     "
+        android:id="@+id/rb_easy"
+        android:layout_gravity="center_horizontal"
+        android:checked="true"
+        />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Normal"
+        android:id="@+id/rb_normal"
+        android:layout_gravity="center_horizontal" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="High    "
+        android:id="@+id/rb_high"
+        android:layout_gravity="center_horizontal" />
+</RadioGroup>
+  </LinearLayout>
+</LinearLayout>

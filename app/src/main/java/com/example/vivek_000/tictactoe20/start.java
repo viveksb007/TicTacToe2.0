@@ -7,6 +7,7 @@ import android.content.Intent;
 
 import android.graphics.Typeface;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import android.view.View;
@@ -25,15 +26,15 @@ public class start extends Activity implements View.OnClickListener{
     ImageView fb,tw,g;
     TextView play_with_frnd;
     Typeface bold,light,regular,heavy;
-
-
-
-
-
+    MediaPlayer  start_tune;
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start);
+        start_tune = MediaPlayer.create(start.this,R.raw.ac);
+        start_tune.start();
+
         newGame=(Button)findViewById(R.id.button);
         settings=(Button)findViewById(R.id.button2);
         exit=(Button)findViewById(R.id.button3);
@@ -56,19 +57,20 @@ public class start extends Activity implements View.OnClickListener{
 
     }
 
-
+    int c=0;
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.button2:
-                break;
+            case R.id.button2: intent = new Intent("com.example.vivek_000.tictactoe20.SETTINGS");
+                 startActivity(intent);
+                 break;
             case R.id.button:
                 AlertDialog.Builder choose=new AlertDialog.Builder(this);
 
                 choose.setMessage("  Play With ..   ").setCancelable(false).setPositiveButton("Friend", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent=new Intent("com.example.vivek_000.tictactoe20.TIKTACTOE");
+                        intent=new Intent("com.example.vivek_000.tictactoe20.TIKTACTOE");
                         startActivity(intent);
                     }
                 });
@@ -76,34 +78,41 @@ public class start extends Activity implements View.OnClickListener{
                 choose.setNegativeButton("Computer <AI>", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent("com.example.vivek_000.tictactoe20.COMPPLAYER");
+                        intent = new Intent("com.example.vivek_000.tictactoe20.COMPPLAYER");
                         startActivity(intent);
                     }
                 });
                 AlertDialog alert=choose.create();
                 alert.show();
-
-
+                c=1;
                 break;
-            case R.id.button3: finish();
+            case R.id.button3: c=1; onStop();
                 break;
             case R.id.g:
                 break;
             case R.id.fb:
-
-
                 break;
             case R.id.tw:
                 break;
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
+        start_tune.start();
+        start_tune.setLooping(true);
+
+    }
 
     @Override
     protected void onStop() {
         super.onStop();
-        finish();
-
+        if(c==1)
+        {
+            start_tune.release();
+            finish();
+        }
     }
 }

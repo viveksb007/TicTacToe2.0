@@ -5,5 +5,9 @@ Would add login and settings functionality soon.
 
 Screenshots:
 <div>
-<img src='/1.png' width='300' height='400'> <\img>
+<center>
+<img src='/1.png' width='250' height='400'> </br>
+<img src='/2.png' width='250' height='400'> </br>
+<img src='/3.png' width='250' height='400'> </br>
+<center>
 <\div>

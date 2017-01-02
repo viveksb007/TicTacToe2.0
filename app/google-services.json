@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "745729542047",
+    "firebase_url": "https://tictactoe-7d48c.firebaseio.com",
+    "project_id": "tictactoe-7d48c",
+    "storage_bucket": "tictactoe-7d48c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745729542047:android:b08cab7fb3054c00",
+        "android_client_info": {
+          "package_name": "com.example.vivek_000.tictactoe20"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "745729542047-phclkirc6tf094ijqmq0itvm3ebil7b4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkkQbU5EXB1R-DfN61HozMQ9T_-r1KsQw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
